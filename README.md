@@ -1,5 +1,3 @@
-Aquí tienes la descripción para el README de GitHub en formato detallado, organizada en secciones de acuerdo a lo que mencionaste:
-
 ---
 
 # Entorno de Desarrollo
