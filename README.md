@@ -1,6 +1,4 @@
-Aquí tienes un ejemplo de cómo podrías estructurar el `README.md` para tu proyecto en GitHub:
-
-```markdown
+# ST0263-242-TÓPICOS ESPECIALES DE TELEMATICA
 # Proyecto 2: Cluster Kubernetes con MicroK8s
 
 ## Descripción General
