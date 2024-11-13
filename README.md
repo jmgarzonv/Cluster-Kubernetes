@@ -287,10 +287,13 @@ microk8s kubectl apply -f nfs-pvc.yaml
 
 La aplicación se puede acceder a través de la siguiente URL: http://52.204.20.172.nip.io/
 
+![imagen](https://github.com/user-attachments/assets/14d53a1c-8eae-44b8-8bb4-6a207f285fbd)
+
 Comando para visualizar la configuración del clúster
 ```
 microk8s kubectl get all -o wide
 ```
 ## Resultado
-![imagen](https://github.com/user-attachments/assets/14d53a1c-8eae-44b8-8bb4-6a207f285fbd)
+![imagen](https://github.com/user-attachments/assets/5bf68d73-3966-4427-b51d-38ab7e084e18)
+
 
