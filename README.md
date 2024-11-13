@@ -110,7 +110,9 @@ spec:
     requests:
       storage: 5Gi
 ```
-MySQL Deployment (mysql-deployment.yaml)
+## MySQL Deployment (mysql-deployment.yaml)
+
+Este deployment tiene la configuración del pv, pvc, deployment y service.
 ```
 apiVersion: v1
 kind: Service
@@ -131,6 +133,8 @@ spec:
   selector:
     matchLabels:
       app: mysql
+  strategy:
+    type: Recreate
   template:
     metadata:
       labels:
@@ -140,10 +144,19 @@ spec:
       - image: mysql:5.6
         name: mysql
         env:
+          # Use secret in real usage
         - name: MYSQL_ROOT_PASSWORD
           value: password
+#          valueFrom:
+#            secretKeyRef:
+#              name: mysql-pass
+#              key: password
         - name: MYSQL_PASSWORD
           value: password
+#          valueFrom:
+#            secretKeyRef:
+#              name: mysql-pass
+#              key: password
         - name: MYSQL_DATABASE
           value: wordpress
         - name: MYSQL_USER
@@ -158,15 +171,45 @@ spec:
       - name: mysql-persistent-storage
         persistentVolumeClaim:
           claimName: mysql-pv-claim
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: mysql-pv-volume
+  labels:
+    type: local
+spec:
+  storageClassName: local
+  capacity:
+    storage: 2Gi
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Delete
+  hostPath:
+    path: "/mnt/data"
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mysql-pv-claim
+spec:
+  storageClassName: local
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 2Gi
 ```
-WordPress Deployment (wordpress-deployment.yaml)
+## WordPress Deployment (wordpress-deployment.yaml)
+
+Este deploymen tiene la configuración del deployment, los volúmenes y el servicio.
 ```
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: wordpress
 spec:
-  replicas: 2
+  replicas: 2  # Puedes ajustar el número de réplicas según tus necesidades
   selector:
     matchLabels:
       app: wordpress
@@ -177,25 +220,39 @@ spec:
     spec:
       containers:
       - name: wordpress
-        image: wordpress:php7.4-apache
+        image: wordpress:php7.4-apache  # Utiliza la versión que prefieras
         env:
         - name: WORDPRESS_DB_HOST
-          value: wordpress-mysql
+          value: wordpress-mysql  # Nombre del servicio de MySQL creado anteriormente
         - name: WORDPRESS_DB_USER
-          value: wordpress
+          value: wordpress  # Debe coincidir con la variable MYSQL_USER del despliegue de MySQL
         - name: WORDPRESS_DB_PASSWORD
-          value: password
+          value: password  # Debe coincidir con la variable MYSQL_PASSWORD
         - name: WORDPRESS_DB_NAME
-          value: wordpress
+          value: wordpress  # Nombre de la base de datos que usa WordPress
         ports:
         - containerPort: 80
         volumeMounts:
-        - mountPath: /var/www/html
+        - mountPath: /var/www/html  # Ruta donde se montará el almacenamiento persistente
           name: wordpress-storage
       volumes:
       - name: wordpress-storage
         persistentVolumeClaim:
           claimName: nfs-pvc
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: wordpress-service
+spec:
+  selector:
+    app: wordpress
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
+  type: NodePort  # O LoadBalancer si tu clúster lo soporta
 ```
 Ingress Config (ingress-config.yaml)
 ```
@@ -223,6 +280,8 @@ Aplicar los manifiestos
 microk8s kubectl apply -f mysql-deployment.yaml
 microk8s kubectl apply -f wordpress-deployment.yaml
 microk8s kubectl apply -f ingress-config.yaml
+microk8s kubectl apply -f nfs-pv.yaml
+microk8s kubectl apply -f nfs-pvc.yaml
 ```
 ### 4.Descripción del ambiente de ejecución
 
@@ -232,3 +291,6 @@ Comando para visualizar la configuración del clúster
 ```
 microk8s kubectl get all -o wide
 ```
+## Resultado
+![imagen](https://github.com/user-attachments/assets/14d53a1c-8eae-44b8-8bb4-6a207f285fbd)
+
