@@ -44,13 +44,16 @@ La arquitectura del sistema incluye un clúster de Kubernetes con MicroK8s, conf
 El clúster se creó en la nube AWS utilizando instancias EC2, configuradas con MicroK8s. A continuación se detallan los pasos de configuración y comandos utilizados.
 
 ### 3.1 EC2 en AWS
-- Instancias :
+
+## - Instancias :
+  
 ![imagen](https://github.com/user-attachments/assets/4167a90e-909d-4203-8f87-dbfc765a2b0a)
 
-- Tipo de instancia y llave de ingreso:
+## - Tipo de instancia y llave de ingreso:
+  
 ![imagen](https://github.com/user-attachments/assets/4c1cb3b3-0a07-4992-a81b-80fb0f540b63)
 
-- Grupo de seguridad:
+## - Grupo de seguridad:
 
 ![imagen](https://github.com/user-attachments/assets/0273706a-cf95-46dc-8808-52d2de3a1d44)
 
@@ -84,7 +87,8 @@ En cada worker, ejecutar el siguiente comando para unirlo al clúster:
 microk8s join 192.168.1.230:25000/92b2db237428470dc4fcfc4ebbd9dc81/2c0cb3284b05 --worker
 ```
 ### 3.4 Manifiestos
-NFS PersistentVolume (nfs-pv.yaml)
+
+## NFS PersistentVolume (nfs-pv.yaml)
 ```
 apiVersion: v1
 kind: PersistentVolume
@@ -100,7 +104,7 @@ spec:
     path: /mnt/nfs/shared
     server: 172.31.28.61
 ```
-NFS PersistentVolumeClaim (nfs-pvc.yaml)
+## NFS PersistentVolumeClaim (nfs-pvc.yaml)
 ```
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -257,7 +261,7 @@ spec:
     targetPort: 80
   type: NodePort  # O LoadBalancer si tu clúster lo soporta
 ```
-Ingress Config (ingress-config.yaml)
+## Ingress Config (ingress-config.yaml)
 ```
 apiVersion: networking.k8s.io/v1
 kind: Ingress
