@@ -1,5 +1,5 @@
+# ST0263-242-TÓPICOS ESPECIALES DE TELEMATICA
 # Proyecto 2 - Cluster Kubernetes con MicroK8s en AWS
-
 ## Objetivo
 El objetivo de este proyecto es desplegar una aplicación CMS Wordpress utilizando un clúster Kubernetes creado con MicroK8s en diferentes máquinas virtuales en la nube AWS (IaaS).
 
@@ -10,11 +10,11 @@ El objetivo de este proyecto es desplegar una aplicación CMS Wordpress utilizan
 Profesor:
 - Edwin Montoya - emontoya@eafit.edu.co
 
-## Descripción general de la actividad
+## 1. Descripción general de la actividad
 
 Este proyecto consiste en la implementación de un CMS Wordpress a través de un clúster de Kubernetes utilizando MicroK8s. El clúster se configura con al menos 3 máquinas virtuales, un servidor NFS y una base de datos MySQL de alta disponibilidad.
 
-### Aspectos cumplidos:
+### 1.1 Aspectos cumplidos:
 - **Clúster de Kubernetes con MicroK8s.**
 - **Un master y 3 workers:**
   - **Master:** Para el clúster de MicroK8s y MySQL.
@@ -25,7 +25,7 @@ Este proyecto consiste en la implementación de un CMS Wordpress a través de un
 - **WordPress (2 pods).**
 - **MySQL (1 pod).**
 
-### Aspectos no desarrollados:
+### 1.2 Aspectos no desarrollados:
 - La base de datos MySQL no se configuró con alta disponibilidad.
 - No se logró configurar un dominio propio.
 
@@ -36,13 +36,19 @@ La arquitectura del sistema incluye un clúster de Kubernetes con MicroK8s, conf
 - **2 workers:** para desplegar los pods de WordPress.
 - **1 worker:** para desplegar el servidor NFS.
 
-## Descripción del ambiente de desarrollo
+## 3. Descripción del ambiente de desarrollo
 
 El clúster se creó en la nube AWS utilizando instancias EC2, configuradas con MicroK8s. A continuación se detallan los pasos de configuración y comandos utilizados.
 
-### EC2 en AWS
-- **Tipo de instancia y llave de ingreso:** Detalles específicos de la instancia y la llave utilizada.
-- **Grupo de seguridad:** Detalles de configuración del grupo de seguridad.
+### 3.1 EC2 en AWS
+- ** Instancias :**
+![imagen](https://github.com/user-attachments/assets/4167a90e-909d-4203-8f87-dbfc765a2b0a)
+
+- **Tipo de instancia y llave de ingreso:** 
+![imagen](https://github.com/user-attachments/assets/4c1cb3b3-0a07-4992-a81b-80fb0f540b63)
+
+- **Grupo de seguridad:** 
+![imagen](https://github.com/user-attachments/assets/0273706a-cf95-46dc-8808-52d2de3a1d44)
 
 ### Configuración de las instancias
 
@@ -60,3 +66,5 @@ sudo microk8s enable istio
 sudo microk8s enable community
 sudo microk8s start
 sudo microk8s kubectl get all --all-namespaces
+
+
