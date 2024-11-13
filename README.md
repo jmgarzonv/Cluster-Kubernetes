@@ -4,8 +4,8 @@
 El objetivo de este proyecto es desplegar una aplicación CMS Wordpress utilizando un clúster Kubernetes creado con MicroK8s en diferentes máquinas virtuales en la nube AWS (IaaS).
 
 ### Integrantes:
-- Juan Manuel Garzón - V-jmgarzonv@eafit.edu.co
-- David Grisales - P-dgrisalesp@eafit.edu.co
+- Juan Manuel Garzón - jmgarzonv@eafit.edu.co
+- David Grisales - dgrisalesp@eafit.edu.co
 
 Profesor:
 - Edwin Montoya - emontoya@eafit.edu.co
