@@ -36,6 +36,9 @@ La arquitectura del sistema incluye un clúster de Kubernetes con MicroK8s, conf
 - **2 workers:** para desplegar los pods de WordPress.
 - **1 worker:** para desplegar el servidor NFS.
 
+  ![proyecto 2](https://github.com/user-attachments/assets/b390afbf-884a-400c-98af-d094b1639520)
+
+
 ## 3. Descripción del ambiente de desarrollo
 
 El clúster se creó en la nube AWS utilizando instancias EC2, configuradas con MicroK8s. A continuación se detallan los pasos de configuración y comandos utilizados.
