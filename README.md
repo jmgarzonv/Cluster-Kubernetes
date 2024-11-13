@@ -297,6 +297,5 @@ Comando para visualizar la configuración del clúster
 microk8s kubectl get all -o wide
 ```
 ## Resultado
-![imagen](https://github.com/user-attachments/assets/5bf68d73-3966-4427-b51d-38ab7e084e18)
-
+![imagen](https://github.com/user-attachments/assets/244b89a2-d436-4ba1-9340-26f1eafd788a)
 
