@@ -68,7 +68,7 @@ sudo microk8s enable community
 sudo microk8s start
 sudo microk8s kubectl get all --all-namespaces
 
-Creación del clúster
+## Creación del clúster
 
 sudo microk8s add-node
 
