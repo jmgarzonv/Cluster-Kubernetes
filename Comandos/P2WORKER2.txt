@@ -1,0 +1,26 @@
+    1  
+    2  sudo snap install microk8s --classic
+    3  sudo microk8s status --wait-ready
+    4  sudo apt update
+    5  sudo snap install microk8s --classic
+    6  sudo microk8s status --wait-ready
+    7  sudo microk8s enable dashboard
+    8  sudo microk8s enable dns
+    9  sudo microk8s enable registry
+   10  sudo microk8s enable istio
+   11  microk8s kubectl get all --all-namespaces
+   12  sudo microk8s kubectl get all --all-namespaces
+   13  sudo microk8s start
+   14  sudo microk8s join 172.31.30.138:25000/09bbcc576d48d61ba02a9151564e737b/8608f1eaea23 --worker
+   15  sudo apt install nfs-common
+   16  sudo mount 172.31.30.138:/srv/nfs/kubedata/mnt
+   17  sudo apt update
+   18  sudo apt install -y nfs-common
+   19  sudo mkdir -p /mnt/nfs/kubedata
+   20  sudo mount 172.31.28.61:/srv/nfs/kubedata /mnt/nfs/kubedata
+   21  sudo nano /etc/exports
+   22  sudo mount 172.31.28.61:/srv/nfs/kubedata /mnt/nfs/kubedata
+   23  kubectl get ingess
+   24  sudo snap install kubectl
+   25  kubectl get ingess
+   26  history

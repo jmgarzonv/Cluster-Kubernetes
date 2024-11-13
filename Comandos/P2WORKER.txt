@@ -1,0 +1,49 @@
+    1  sudo snap install microk8s --classic
+    2  microk8s status --wait-ready
+    3  SUDO microk8s status --wait-ready
+    4  sudo microk8s status --wait-ready
+    5  microk8s enable dashboard
+    6  microk8s enable dns
+    7  microk8s enable registry
+    8  microk8s enable istio
+    9  sudo microk8s enable istio
+   10  sudo microk8s enable dashboard
+   11  sudo nmicrok8s enable dns~
+   12  sudo microk8s enable dns~
+   13  sudo microk8s enable dns
+   14  sudo microk8s enable registry
+   15  sudo microk8s enable istio
+   16  microk8s enable istio
+   17  sudo microk8s enable istio
+   18  sudo apt update
+   19  sudo snap install microk8s --classic
+   20  sudo microk8s status --wait-ready
+   21  sudo microk8s enable dashboard
+   22  sudo microk8s enable dashboard
+   23  sudo microk8s enable dns
+   24  sudo microk8s enable registry
+   25  sudo microk8s enable istio
+   26  sudo microk8s kubectl get all --all-namespaces
+   27  sudo microk8s start
+   28  sudo microk8s join 172.31.30.138:25000/09bbcc576d48d61ba02a9151564e737b/8608f1eaea23 --worker
+   29  microk8s join 172.31.30.138:25000/09bbcc576d48d61ba02a9151564e737b/8608f1eaea23 --worker
+   30  sudo microk8s join 172.31.30.138:25000/09bbcc576d48d61ba02a9151564e737b/8608f1eaea23 --worker
+   31  sudo microk8s join 172.31.30.138:25000/101626449cb54ca2e8b4702fcc73603d/8608f1eaea23 --worker
+   32  sudo microk8s kubectl get all --all-namespaces
+   33  sudo microk8s start
+   34  sudo microk8s join 172.31.30.138:25000/101626449cb54ca2e8b4702fcc73603d/8608f1eaea23 --worker
+   35  microk8s join 172.31.30.138:25000/58305295acb270e63aa04096fbe90160/8608f1eaea23 --worker
+   36  sudo microk8s join 172.31.30.138:25000/58305295acb270e63aa04096fbe90160/8608f1eaea23 --worker
+   37  sudo microk8s status
+   38  ping 172.31.30.138
+   39  sudo microk8s enable dns dashboard ingress
+   40  sudo microk8s enable community
+   41  sudo apt install nfs-common
+   42  sudo mkdir -p /mnt/nfs/kubedata
+   43  sudo apt update
+   44  sudo apt install -y nfs-common
+   45  sudo mkdir -p /mnt/nfs/kubedata
+   46  sudo mount 172.31.28.61:/srv/nfs/kubedata /mnt/nfs/kubedata
+   47  sudo touch /mnt/nfs/kubedata/testfile
+   48  sudo mount 172.31.30.138:/srv/nfs/nfs_share /mnt/nfs
+   49  history

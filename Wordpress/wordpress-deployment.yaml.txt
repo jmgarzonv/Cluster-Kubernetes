@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wordpress
+spec:
+  replicas: 2  # Puedes ajustar el número de réplicas según tus necesidades
+  selector:
+    matchLabels:
+      app: wordpress
+  template:
+    metadata:
+      labels:
+        app: wordpress
+    spec:
+      containers:
+      - name: wordpress
+        image: wordpress:php7.4-apache  # Utiliza la versión que prefieras
+        env:
+        - name: WORDPRESS_DB_HOST
+          value: wordpress-mysql  # Nombre del servicio de MySQL creado anteriormente
+        - name: WORDPRESS_DB_USER
+          value: wordpress  # Debe coincidir con la variable MYSQL_USER del despliegue de MySQL
+        - name: WORDPRESS_DB_PASSWORD
+          value: password  # Debe coincidir con la variable MYSQL_PASSWORD
+        - name: WORDPRESS_DB_NAME
+          value: wordpress  # Nombre de la base de datos que usa WordPress
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - mountPath: /var/www/html  # Ruta donde se montará el almacenamiento persistente
+          name: wordpress-storage
+      volumes:
+      - name: wordpress-storage
+        persistentVolumeClaim:
+          claimName: nfs-pvc
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: wordpress-service
+spec:
+  selector:
+    app: wordpress
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
+  type: NodePort  # O LoadBalancer si tu clúster lo soporta

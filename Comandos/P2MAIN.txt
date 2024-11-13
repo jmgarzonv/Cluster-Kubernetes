@@ -1,0 +1,549 @@
+    1  
+    2  sudo snap install microk8s --classic
+    3  sudo microk8s status --wait-ready
+    4  sudo apt update
+    5  
+    6  sudo snap install microk8s --classic
+    7  
+    8  microk8s status --wait-ready
+    9  sudo microk8s enable dashboard
+   10  microk8s enable dns
+   11  sudo microk8s enable dns
+   12  sudo microk8s enable registry
+   13  sudo microk8s enable istio
+   14  microk8s enable --help
+   15  sudo microk8s enable --help
+   16  microk8s dashboard-proxy
+   17  sudo microk8s dashboard-proxy
+   18  sudo microk8s start
+   19  sudo microk8s add-node
+   20  sudo microk8s kubectl get nodes
+   21  alias mkctl="microk8s kubectl"
+   22  sudo microk8s kubectl get nodes
+   23  nano nginx-deployment.yaml
+   24  sudo microk8s kubectl apply -f nginx-deployment.yaml
+   25  sudo microk8s kubectl get nodes
+   26  nano moodle-deployment.yaml
+   27  sudo microk8s enable istio
+   28  sudo microk8s enable community
+   29  nano nginx-deployment.yaml
+   30  sudo microk8s add-node
+   31  sudo microk8s kubectl get nodes
+   32  sudo microk8s add-node
+   33  sudo microk8s kubectl get nodes
+   34  sudo microk8s add-node
+   35  sudo microk8s kubectl get nodes
+   36  sudo microk8s kubectl get pods --all-namespaces
+   37  sudo microk8s kubectl get nodes
+   38  sudo microk8s kubectl get pods --all-namespaces
+   39  sudo microk8s kubectl get nodes
+   40  microk8s enable dns dashboard ingress
+   41  sudo microk8s enable dns dashboard ingress
+   42  nano nginx-deployment.yaml
+   43  sudo microk8s kubectl apply -f nginx-deployment.yaml
+   44  sudo microk8s kubectl get nodes
+   45  sudo microk8s enable ingress
+   46  sudo apt-get install nfs-kernel-server
+   47  sudo mkdir -p /srv/nfs/kubedata
+   48  sudo chown nobody:nogroup /srv/nfs/kubedata
+   49  sudo chmod 777 /srv/nfs/kubedata
+   50  cd /
+   51  ls
+   52  cd srv/
+   53  cd nfs/kubedata/
+   54  ls
+   55  *(rw,sync,no_subtree_check
+   56  *(rw,sync,no_subtree_check)
+   57  cd /srv/nfs/shared *(rw,sync,no_subtree_check)
+   58  sudo nano /etc/exports
+   59  sudo exportfs -ra
+   60  sudo systemctl restart nfs-kernel-server
+   61  cd /
+   62  cd ..
+   63  sudo exportfs -ra
+   64  sudo systemctl restart nfs-kernel-server
+   65  showmount -e
+   66  sudo apt install nfs-common
+   67  nano nfs-pv.yaml
+   68  hostname -I
+   69  sudo apt install nfs-common
+   70  nano nfs-pv.yaml
+   71  cd
+   72  ls
+   73  cd /
+   74  ls
+   75  cd srv
+   76  ls
+   77  cd nfs/
+   78  ls
+   79  cd kubedata/
+   80  sudo exportfs -v
+   81  cd ..
+   82  sudo exportfs -v
+   83  cd /
+   84  cd ..
+   85  sudo exportfs -v
+   86  sudo microk8s kubectl get nodes
+   87  sudo microk8s kubectl -m kube-system ged pods
+   88  sudo microk8s kubectl -n kube-system ged pods
+   89  sudo microk8s kubectl kube-system ged pods
+   90  sudo microk8s kubectl get pods --all-namespaces
+   91  sudo microk8s kubectl -m kube-system ged pods}
+   92  nano nginx-deployment.yaml 
+   93  nano wordpress.yaml
+   94  nano nginx-deployment.yaml
+   95  nano wordpress.yaml
+   96  nano mysql-deployment.yaml
+   97  sudo exportfs -a
+   98  sudo systemctl restart nfs-kernel-server
+   99  nano mysql-deployment.yaml
+  100  sudo microk8s kubectl get nodes
+  101  sudo exportfs -v
+  102  sudo apt install -y nfs-common
+  103  sudo mkdir -p /mnt/nfs/kubedata
+  104  sudo mount 172.31.28.61:/srv/nfs/kubedata /mnt/nfs/kubedata
+  105  sudo systemctl status nfs-server
+  106  sudo nano /srv/nfs/kubedata *(rw,sync,no_subtree_check)
+  107  sudo nano /srv/nfs/kubedata
+  108  sudo nano etc/exports
+  109  sudo nano etc/exports}
+  110  <IP_DEL_SERVIDOR_NFS>:/srvedata nfs defaults 0 0
+  111  ping 172.31.28.61
+  112  sudo mount 172.31.28.61:/srv/nfs/kubedata /mnt/nfs/kubedata
+  113  ts}
+  114  172.31.28.61:/srv/nfs/kubedata /mnt/nfs/kubedata nfs defaults 0 0
+  115  sudo nano /etc/fstab
+  116  sudo mount -a
+  117  172.31.28.61:/srv/nfs/kubedata /mnt/nfs/kubedata nfs defaults 0 0
+  118  sudo mount -a
+  119  sudo mount 172.31.28.61:/srv/nfs/kubedata /mnt/nfs/kubedata
+  120  sudo nano nfs-pv.yaml
+  121  kubectl apply -f nfs-pv.yaml
+  122  sudo snap install kubectl
+  123  kubectl apply -f nfs-pv.yaml
+  124  sudo snap install kubectl --classic
+  125  sudo apt update
+  126  sudo apt install -y kubectl
+  127  kubectl version --client
+  128  kubectl apply -f nfs-pvc.yaml
+  129  kubectl apply -f nfs-pv.yaml
+  130  sudo nano nfs-pvc.yaml
+  131  kubectl apply -f nfs-pvc.yaml
+  132  sudo apt install awscli
+  133  y
+  134  aws configure
+  135  sudo apt install awscli
+  136  sudo microk8s kubectl get nodes
+  137  sudo nano nginx-deployment.yaml 
+  138  sudo nano wordpress.yaml 
+  139  kubectl get ingess
+  140  sudo nano wordpress.yaml 
+  141  microk8s status
+  142  sudo microk8s status
+  143  alias kubectl='microk8s.kubectl'
+  144  source ~/.bashrc  # o ~/.zshrc
+  145  microk8s.kubectl get nodes
+  146  sudo microk8s.kubectl get nodes
+  147  microk8s.kubectl apply -f wordpress.yaml
+  148  sudo microk8s.kubectl apply -f wordpress.yaml
+  149  microk8s.kubectl get pods
+  150  microk8s.kubectl get services
+  151  microk8s.kubectl get ingress
+  152  sudo microk8s.kubectl get ingress
+  153  microk8s.kubectl get pods
+  154  sudo microk8s.kubectl get pods
+  155  sudo nano nginx-deployment.yaml 
+  156  microk8s.kubectl get services
+  157  sudo microk8s.kubectl get services
+  158  sudo microk8s.kubectl get pods
+  159  sudo microk8s.kubectl get ingress
+  160  sudo nano nginx-deployment.yaml 
+  161  sudo nano wordpress.yaml }
+  162  sudo nano wordpress.yaml }}
+  163  sudo nano wordpress.yaml
+  164  sudo microk8s.kubectl apply -f wordpress.yaml 
+  165  sudo microk8s.kubectl get ingress
+  166  sudo microk8s.kubectl get pods
+  167  sudo nano wordpress.yaml }
+  168  sudo nano wordpress.yaml }}
+  169  sudo microk8s.kubectl get pods
+  170  sudo nano nginx-deployment.yaml 
+  171  sudo nano wordpress.yaml
+  172  sudo nano wordpress.yaml 
+  173  sudo microk8s.kubectl get pods
+  174  sudo nano wordpress.yaml 
+  175  sudo nano wordpress.yaml
+  176  sudo nano wordpress.yaml}
+  177  sudo nano wordpress.yaml
+  178  sudo microk8s.kubectl apply -f wordpress.yaml
+  179  sudo nano wordpress.yaml
+  180  sudo nano wordpress.yaml}
+  181  sudo nano wordpress.yaml
+  182  sudo microk8s.kubectl apply -f wordpress.yaml
+  183  sudo microk8s.kubectl get pods
+  184  sudo nano wordpress.yaml
+  185  sudo microk8s.kubectl apply -f wordpress.yaml
+  186  sudo microk8s.kubectl get pods
+  187  sudo microk8s.kubectl get service
+  188  sudo nano wordpress-service.yaml
+  189  sudo microk8s.kubectl apply -f wordpress-service.yaml
+  190  sudo microk8s.kubectl get svc
+  191  sudo microk8s.kubectl get service
+  192  sudo microk8s.kubectl get pods
+  193  sudo microk8s.kubectl get service
+  194  sudo microk8s.kubectl get nodes
+  195  sudo microk8s.kubectl apply -f wordpress-service.yaml
+  196  sudo nano wordpress-service.yaml
+  197  sudo nano wordpress.yaml
+  198  sudo nano nginx-deployment.yaml 
+  199  sudo microk8s.kubectl apply -f nginx-deployment.yaml 
+  200  sudo microk8s.kubectl get service}
+  201  sudo microk8s.kubectl get service
+  202  sudo microk8s.enable ingress
+  203  sudo nano ingress-config.yaml
+  204  sudo microk8s.kubectl apply -f ingress-config.yaml
+  205  sudo microk8s.kubectl get ingress
+  206  sudo microk8s.kubectl get service
+  207  sudo microk8s.kubectl get pods
+  208  sudo microk8s.enable ingress
+  209  sudo nano ingress-config.yaml
+  210  sudo microk8s.kubectl apply -f ingress-config.yaml
+  211  sudo nano ingress-config.yaml
+  212  sudo microk8s.kubectl apply -f ingress-config.yaml
+  213  sudo nano ingress-config.yaml
+  214  sudo microk8s.kubectl apply -f ingress-config.yaml
+  215  sudo nano ingress-config.yaml
+  216  sudo microk8s.kubectl apply -f ingress-config.yaml
+  217  sudo nano wordpress.yaml
+  218  sudo nano wordpress.yaml}
+  219  sudo nano wordpress.yaml
+  220  sudo microk8s.kubectl get pods
+  221  sudo microk8s.kubectl get scv
+  222  sudo microk8s.kubectl get ssv
+  223  sudo microk8s.kubectl get service
+  224  sudo microk8s.kubectl get nodes
+  225  sudo nano mysql-deployment.yaml 
+  226  sudo nano wordpress.yaml 
+  227  sudo nano mysql-deployment.yaml 
+  228  sudo nano wordpress.yaml 
+  229  sudo microk8s.kubectl apply -f mysql-deployment.yaml 
+  230  sudo microk8s.kubectl apply -f wordpress.yaml
+  231  sudo microk8s.kubectl apply -f mysql-deployment.yaml 
+  232  sudo nano mysql-deployment.yaml 
+  233  sudo nano wordpress.yaml 
+  234  sudo microk8s.kubectl apply -f mysql-deployment.yaml 
+  235  sudo microk8s.kubectl apply -f wordpress.yaml
+  236  sudo microk8s.kubectl get pods
+  237  sudo microk8s.kubectl get services
+  238  sudo microk8s.kubectl get pods
+  239  sudo nano wordpress.yaml
+  240  sudo nano mysql-deployment.yaml 
+  241  sudo cat wordpress.yaml
+  242  sudo cat mysql-deployment.yaml
+  243  sudo nano mysql-deployment.yaml 
+  244  sudo nano wordpress.yaml
+  245  sudo microk8s.kubectl apply -f mysql-deployment.yaml 
+  246  sudo microk8s.kubectl apply -f wordpress.yaml
+  247  sudo nano wordpress.yaml
+  248  sudo microk8s.kubectl apply -f wordpress.yaml
+  249  sudo nano wordpress.yaml
+  250  sudo microk8s.kubectl apply -f wordpress.yaml
+  251  sudo nano mysql-deployment.yaml
+  252  sudo microk8s.kubectl apply -f mysql-deployment.yaml 
+  253  sudo microk8s.kubectl get pods
+  254  sudo microk8s.kubectl get svc
+  255  sudo microk8s.kubectl get pods
+  256  sudo microk8s.kubectl logs mysql-77658bc8df-q7zlj
+  257  sudo microk8s.kubectl get pods
+  258  sudo microk8s.kubectl get pods --all-namespaces --field-selector=status.phase=Failed -o json | jq -r '.items[] | select(.status.reason=="Evicted") | .metadata.name' | xargs -I {} sudo microk8s.kubectl delete pod {}
+  259  sudo microk8s.kubectl get pods
+  260  sudo microk8s.kubectl get pods --all-namespaces --field-selector=status.phase=Failed -o json | jq -r '.items[] | select(.status.reason=="Evicted") | .metadata.name' | xargs -I {} sudo microk8s.kubectl delete pod {}
+  261  sudo microk8s.kubectl get pods --all-namespaces --fieldelector=status.phase=Failed -o json | jq -r '.items[] | select(.status.reason=="Evicted") | .metadata.name' | xargs -I {} sudo microk8s.kubectl delete pod {}
+  262  sudo microk8s.kubectl get pods --all-namespaces --field-selector=status.phase!=Running -o json | jq -r '.items[] | .metadata.name' | xargs -I {} sudo microk8s.kubectl delete pod {}
+  263  sudo microk8s.kubectl get pods --all-namespaces --field-selector=status.phase=Failed -o json | jq -r '.items[] | select(.status.reason=="Evicted") 
+  264  sudo microk8s.kubectl get pods
+  265  sudo microk8s.kubectl apply -f wordpress.yaml
+  266  sudo nano mysql-deployment.yaml
+  267  sudo microk8s.kubectl apply -f wordpress.yaml
+  268  sudo microk8s.kubectl apply -f mysql-deployment.yaml 
+  269  sudo microk8s.kubectl get pods
+  270  sudo microk8s.kubectl get svc
+  271  sudo nano mysql-deployment.yaml
+  272  sudo nano wordpress.yaml
+  273  sudo microk8s.kubectl get pods
+  274  microk8s.kubectl delete pod --field-selector=status.phase!=Running
+  275  sudo microk8s.kubectl delete pod --field-selector=status.phase!=Running
+  276  sudo microk8s.kubectl get pods
+  277  microk8s.kubectl get deployments
+  278  sudo microk8s.kubectl get deployments
+  279  microk8s.kubectl describe pod moodle-instance-1
+  280  sudo microk8s.kubectl describe pod moodle-instance-1
+  281  sudo nano 
+  282  sudo nano wordpress
+  283  sudo nano wordpress.yaml}
+  284  sudo nano wordpress.yaml
+  285  sudo nano wordpress.yaml }}
+  286  sudo nano wordpress.yaml
+  287  sudo nano wordpress.yaml 
+  288  sudo nano wordpress.yaml }}
+  289  sudo nano wordpress.yaml
+  290  sudo nano mysql-deployment.yaml 
+  291  sudo nano wordpress.yaml
+  292  sudo nano mysql-deployment.yaml 
+  293  sudo nano wordpress.yaml
+  294  sudo nano mysql-deployment.yaml 
+  295  sudo nano wordpress.yaml
+  296  sudo microk8s.kubectl apply -f mysql-deployment.yaml
+  297  sudo microk8s.kubectl apply -f wordpress.yaml
+  298  sudo nano wordpress-service.yaml 
+  299  sudo microk8s.kubectl get ´pods
+  300  sudo microk8s.kubectl get pods
+  301  sudo nano 
+  302  sudo nano wordpress.yaml.save 
+  303  sudo nano wordpress.yaml   
+  304  sudo nano nfs-pvc.yaml 
+  305  sudo nano wordpress-service.yaml 
+  306  sudo nano wordpress.yaml
+  307  sudo nano wordpress.yaml }
+  308  sudo microk8s.kubectl get pods
+  309  sudo microk8s.kubectl apply -f wordpress.yaml
+  310  sudo microk8s.kubectl apply -f mysql-deployment.yaml 
+  311  microk8s.kubectl get services
+  312  sudo microk8s.kubectl get services
+  313  microk8s.kubectl get ingress
+  314  sudo microk8s.kubectl get ingress
+  315  microk8s.kubectl describe ingress wordpress-ingress
+  316  sudo microk8s.kubectl describe ingress wordpress-ingress
+  317  microk8s.kubectl get services
+  318  sudo microk8s.kubectl get services
+  319  microk8s.kubectl get pods
+  320  sudo microk8s.kubectl get pods
+  321  sudo microk8s.kubectl get services
+  322  sudo nano ingress-config.yaml 
+  323  sudo nano wordpress.yaml
+  324  sudo nano ingress-config.yaml 
+  325  sudo microk8s.kubectl apply -f ingress-config.yaml 
+  326  sudo microk8s.kubectl apply -f ingress-config.yaml
+  327  sudo nano ingress-config.yaml 
+  328  sudo microk8s.kubectl apply -f ingress-config.yaml
+  329  sudo nano ingress-config.yaml 
+  330  sudo microk8s.kubectl apply -f ingress-config.yaml
+  331  sudo nano ingress-config.yaml 
+  332  sudo microk8s.kubectl apply -f ingress-config.yaml
+  333  sudo microk8s.kubectl describe ingress wordpress-ingress
+  334  sudo nano ingress-config.yaml 
+  335  sudo microk8s.kubectl apply -f ingress-config.yaml
+  336  sudo microk8s.kubectl get pods
+  337  sudo apt update
+  338  sudo apt install nfs-kernel-server
+  339  sudo mkdir -p /mnt/nfs_share
+  340  sudo nano /etc/exports
+  341  sudo exportfs -a
+  342  sudo systemctl restart nfs-kernel-server
+  343  sudo ufw allow from 172.31.30.138 to any port nfs
+  344  sudo exportfs -v
+  345  sudo nano /etc/exports
+  346  cd /mnt/nfs_share
+  347  ls
+  348  cd ..
+  349  ls
+  350  cd nfs_share/
+  351  cd ..
+  352  sudo exportfs -a
+  353  sudo exportfs -v
+  354  sudo systemctl restart nfs-kernel-server
+  355  sudo systemctl status nfs-kernel-server
+  356  sudo nano /etc/exports
+  357  sudo exportfs -v
+  358  sudo exportfs -a
+  359  sudo exportfs -v
+  360  sudo chown nobody:nogroup /srv/nfs/nfs_share
+  361  sudo chmod 777 /srv/nfs/nfs_share
+  362  sudo chown nobody:nogroup /srv/nfs/nfs_share
+  363  sudo mkdir -p /srv/nfs/nfs_share
+  364  sudo chown nobody:nogroup /srv/nfs/nfs_share
+  365  sudo chmod 777 /srv/nfs/nfs_share
+  366  sudo nano /etc/exports
+  367  sudo exportfs -a
+  368  sudo systemctl restart nfs-kernel-server
+  369  sudo exportfs -v
+  370  sudo grep nfs /var/log/syslog
+  371  sudo journalctl -u nfs-kernel-server
+  372  sudo nano /etc/exports
+  373  sudo exportfs -ra
+  374  sudo systemctl restart nfs-idmapd
+  375  sudo systemctl status nfs-idmapd
+  376  sudo mkdir -p /srv/nfs/nfs_share
+  377  sudo chown nobody:nogroup /srv/nfs/nfs_share
+  378  sudo chmod 777 /srv/nfs/nfs_share
+  379  sudo exportfs -ra
+  380  sudo systemctl restart nfs-kernel-server
+  381  sudo systemctl restart nfs-mountd
+  382  sudo journalctl -u nfs-kernel-server
+  383  sudo grep nfs /var/log/syslog
+  384  sudo apt-get install nfs-common
+  385  sudo systemctl restart nfs-server
+  386  sudo nano /etc/idmapd.conf
+  387  sudo systemctl restart rpcbind
+  388  sudo apt-get remove --purge nfs-kernel-server nfs-common
+  389  sudo apt-get install nfs-kernel-server nfs-common
+  390  sudo journalctl -u nfs-server
+  391  ls /etc/exports
+  392  ls -l /etc/exports
+  393  sudo nano /etc/exports 
+  394  sudo nano /etc/exports
+  395  sudo exportfs -ra
+  396  }
+  397  sudo exportfs -ra
+  398  sudo systemctl status nfs-server
+  399  sudo systemctl enable nfs-server
+  400  sudo exportfs -v
+  401  sudo systemctl restart nfs-server
+  402  sudo nano /etc/exports
+  403  sudo microk8s add-node
+  404  microk8s.kubectl get nodes
+  405  sudo microk8s.kubectl get nodes
+  406  [200~kubectl get nodes
+  407  kubectl get nodes
+  408  sudo kubectl get nodes
+  409  sudo microk8s.kubectl get nodes
+  410  sudo nano nfs-pv.yaml
+  411  sudo nano nfs-pvc.yaml 
+  412  kubectl apply -f nfs-pvc.yaml
+  413  sudo nano nfs-pvc.yaml 
+  414  sudo microk8s.kubectl apply -f nfs-pvc.yaml 
+  415  sudo microk8s.kubectl apply -f nfs-pv.yaml 
+  416  sudo nano nfs-pv.yaml 
+  417  sudo nano wordpress.yaml
+  418  sudo nano nfs-pv.yaml 
+  419  sudo nano nfs-pvc.yaml
+  420  microk8s kubectl apply -f nfs-pv.yaml
+  421  microk8s kubectl apply -f nfs-pvc.yaml
+  422  sudo microk8s kubectl apply -f nfs-pvc.yaml
+  423  sudo microk8s kubectl apply -f nfs-pv.yaml 
+  424  microk8s kubectl get pv
+  425  sudo microk8s kubectl get pv
+  426  microk8s kubectl get pvc
+  427  sudo microk8s kubectl get pvc
+  428  sudo microk8s kubectl get pv
+  429  sudo nano nfs-pv.yaml
+  430  sudo nano nfs-pvc.yaml
+  431  sudo nano nfs-pv.yaml
+  432  sudo nano nfs-pvc.yaml
+  433  microk8s kubectl apply -f nfs-pvc.yaml
+  434  sudo microk8s kubectl apply -f nfs-pvc.yaml
+  435  sudo nano nfs-pvc.yaml
+  436  sudo microk8s kubectl apply -f nfs-pvc.yaml
+  437  sudo microk8s kubectl delete pvc nfs-pvc
+  438  sudo nano nfs-pvc.yaml
+  439  sudo nano nfs-pv.yaml
+  440  sudo nano nfs-pc.yaml
+  441  sudo nano nfs-pvc.yaml
+  442  sudo nano nfs-pc.yaml
+  443  sudo nano nfs-pv.yaml
+  444  sudo nano nfs-pvc.yaml
+  445  sudo microk8s kubectl apply -f nfs-pvc.yaml
+  446  sudo microk8s kubectl apply -f nfs-pv.yaml
+  447  kubectl get pv
+  448  kubectl get pvc
+  449  sudo microk8s kubectl get pv
+  450  sudo microk8s kubectl get pvc
+  451  sudo microk8s kubectl get pods
+  452  sudo nano nfs-pvc.yaml
+  453  sudo nano nfs-pv.yaml
+  454  sudo microk8s kubectl describe pv nfs-pv
+  455  sudo microk8s kubectl describe pv nfs-pvc
+  456  sudo nano nfs-pv.yaml
+  457  sudo nano nfs-pvc.yaml
+  458  sudo nano nfs-pv.yaml
+  459  sudo microk8s kubectl describe pv nfs-pvc
+  460  sudo microk8s kubectl apply -f nfs-pv.yaml
+  461  sudo microk8s kubectl apply -f nfs-pvc.yaml
+  462  sudo microk8s kubectl get pv
+  463  sudo microk8s kubectl get pvc
+  464  sudo nano nfs-pv.yaml
+  465  sudo nano nfs-pvc.yaml
+  466  sudo microk8s kubectl describe pv nfs-pv
+  467  sudo microk8s kubectl describe pv nfs-pvc
+  468  sudo microk8s kubectl describe pvc nfs-pvc
+  469  sudo microk8s kubectl describe pv nfs-pv
+  470  sudo microk8s kubectl describe pvc nfs-pvc
+  471  sudo nano wordpress.yaml
+  472  sudo cat wordpress.yaml
+  473  sudo nano wordpress.yaml
+  474  sudo microk8s kubectl apply -f wordpress.yaml 
+  475  sudo microk8s kubectl describe pvc nfs-pvc
+  476  sudo microk8s kubectl describe pv nfs-pv
+  477  sudo microk8s kubectl get pvc
+  478  sudo microk8s kubectl get pv
+  479  ls
+  480  sudo microk8s kubectl get pv
+  481  sudo nano mysql-deployment.yaml 
+  482  sudo microk8s kubectl get pv
+  483  sudo microk8s kubectl get pvc
+  484  sudo nano ingress-config.yaml 
+  485  sudo microk8s kubectl apply -f ingress-config.yaml
+  486  sudo microk8s kubectl get pods
+  487  sudo nano ingress-config.yaml 
+  488  sudo microk8s kubectl apply -f ingress-config.yaml
+  489  sudo nano ingress-config.yaml 
+  490  sudo microk8s kubectl ingress-config.yaml 
+  491  sudo microk8s kubectl ingress-config -o yaml
+  492  sudo nano ingress-config.yaml 
+  493  sudo microk8s kubectl ingress-config.yaml -o yaml
+  494  sudo microk8s kubectl wordpress-ingress -o yaml
+  495  sudo microk8s kubectl wordpress-ingress -o wide
+  496  sudo microk8s kubectl wordpress-ingress -o yaml
+  497  sudo nano ingress-config.yaml 
+  498  sudo microk8s kubectl wordpress-ingress -o wide
+  499  sudo microk8s kubectl get ingress wordpress-ingress -o wide
+  500  sudo microk8s kubectl get pods -n ingress-nginx
+  501  sudo microk8s kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/cloud/deploy.yaml
+  502  sudo microk8s kubectl get svc -n ingress-nginx
+  503  sudo nano ingress-config.yaml 
+  504  sudo microk8s kubectl apply -f ingress-config.yaml 
+  505  sudo nano ingress-config.yaml 
+  506  sudo nano wordpress-service.yaml 
+  507  sudo nano wordpress.yaml
+  508  sudo nano wordpress-service.yaml 
+  509  sudo microk8s kubectl apply -f wordpress-service.yaml 
+  510  sudo microk8s kubectl apply -f ingress-config.yaml 
+  511  sudo nano wordpress-service.yaml 
+  512  sudo nano wordpress.yaml
+  513  sudo microk8s kubectl get nodes
+  514  sudo microk8s kubectl get pods
+  515  sudo microk8s kubectl get svc
+  516  sudo microk8s kubectl get nodes
+  517  sudo microk8s kubectl get svc
+  518  sudo microk8s kubectl get pods
+  519  kubectl drain <nombre-del-nodo> --ignore-daemonsets --delete-emptydir-data
+  520  kubectl get pods --all-namespaces | grep '0/1' | awk '{print $2}' | xargs kubectl delete pod
+  521  sudo kubectl get pods --all-namespaces | grep '0/1' | awk '{print $2}' | xargs kubectl delete pod
+  522  kubectl get pods --all-namespaces --field-selector=status.phase==Unknown | awk '{print $2}' | xargs kubectl delete pod
+  523  sudo microk8s kubectl get nodes
+  524  sudo microk8s kubectl get pods
+  525  kubectl get pods --all-namespaces --field-selector=status.phase==Unknown | awk '{print $2}' | xargs kubectl delete pod
+  526  kubectl get pods | grep '0/1' | awk '{print $1}' | xargs kubectl delete pod
+  527  kubectl get pods --field-selector=status.phase!=Running --no-headers | awk '$2 == "0/1" {print $1}' | xargs -r kubectl delete pod
+  528  kubectl get pods | grep '0/1' | awk '{print $1}' | xargs kubectl delete pod
+  529  sudo m
+  530  kubectl get pods --field-selector=status.phase!=Running --no-headers | awk '$2 == "0/1" {print $1}' | xargs -r kubectl delete pod
+  531  sudo microk8s kubectl get pods --field-selector=status.phase!=Running --no-headers | awk '$2 == "0/1" {print $1}' | xargs -r kubectl delete pod
+  532  sudo microk8s kubectl get pods --field-selector=status.phase!=Running --no-headers | awk '$2 == "0/1" {print $1}' | xargs -r microk8s kubectl delete pod
+  533  sudo microk8s kubectl get pods --field-selector=status.phase!=Running --no-headers | awk '$2 == "0/1" {print $1}' | xargs -r sudo microk8s kubectl delete pod
+  534  sudo microk8s kubectl get pods
+  535  sudo microk8s kubectl get svc
+  536  sudo microk8s kubectl get all -o wide
+  537  ls
+  538  sudo nano mysql-deployment.yaml 
+  539  sudo nano wordpress.yaml
+  540  ls
+  541  sudo nano wordpress.yaml
+  542  sudo cat wordpress.yaml
+  543  sudo cat ingress-config.yaml 
+  544  sudo cat mysql-deployment.yaml 
+  545  sudo cat nfs-pv.yaml 
+  546  sudo cat nfs-pvc}.yaml 
+  547  sudo cat nfs-pvc.yaml 
+  548  history > comandos.txt
+  549  history

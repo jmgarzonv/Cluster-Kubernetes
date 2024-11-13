@@ -1,0 +1,55 @@
+    1  sudo apt update
+    2  sudo snap install microk8s --classic
+    3  sudo microk8s status --wait-ready
+    4  sudo microk8s enable dashboard
+    5  sudo microk8s enable dashboard
+    6  sudo microk8s enable dns
+    7  sudo microk8s enable registry
+    8  sudo microk8s enable istio
+    9  microk8s enable community
+   10  sudo microk8s enable community
+   11  sudo microk8s start
+   12  sudo microk8s kubectl get all --all-namespaces
+   13  sudo mkdir -p /srv/nfs/kubedata
+   14  cd /srv/nfs/kubedata/
+   15  ls
+   16  sudo nano /etc/exports
+   17  cd /srv/nfs/kubedata/
+   18  sudo nano /etc/exports
+   19  sudo exportfs -v
+   20  sudo apt install -y nfs-common
+   21  sudo nano /etc/exports}
+   22  sudo nano /etc/exports
+   23  sudo exportfs -ra
+   24  sudo showmount -e 172.31.28.61
+   25  ping 172.31.28.61
+   26  sudo systemctl status nfs-server
+   27  sudo apt install nfs-kernel-server
+   28  sudo systemctl start nfs-kernel-server
+   29  sudo systemctl status nfs-kernel-server
+   30  sudo systemctl enable nfs-kernel-server
+   31  sudo exportfs -ra}
+   32  sudo exportfs -ra
+   33  sudo systemctl restart nfs-kernel-server
+   34  sudo systemctl status nfs-kernel-server
+   35  sudo apt update
+   36  sudo apt install nfs-kernel-server
+   37  sudo mkdir -p /mnt/nfs_share
+   38  ls mnt/nfs_share
+   39  -l  mnt/nfs_share
+   40  sudo systemctl status nfs-server
+   41  sudo apt install nfs-kernel-server
+   42  sudo nano /etc/exports
+   43  sudo apt install nfs-kernel-server
+   44  sudo nano /etc/exports
+   45  sudo exportfs -a
+   46  sudo mkdir -p /mnt/nfs/shared
+   47  sudo exportfs -a
+   48  sudo chmod 777 /mnt/nfs/shared
+   49  sudo exportfs -a
+   50  sudo exportfs -v
+   51  microk8s join 172.31.30.138:25000/dab03d9563b11a5ac680c239d2f44bef/8608f1eaea23 --worker
+   52  microk8s join 172.31.30.138:25000/dab03563b11a5ac680c239d2f44bef/8608f1eaea23 --worker
+   53  sudo microk8s join 172.31.30.138:25000/dab03d9563b11a5ac680c239d2f44bef/8608f1eaea23 --worker
+   54  sudo nano /etc/exports
+   55  history
