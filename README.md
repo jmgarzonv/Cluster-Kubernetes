@@ -67,18 +67,22 @@ sudo microk8s enable istio
 sudo microk8s enable community
 sudo microk8s start
 sudo microk8s kubectl get all --all-namespaces
-
 ## Creación del clúster
 
+Para crear un clúster de MicroK8s y unir los nodos worker, sigue los pasos a continuación.
+
+1. En el nodo maestro, ejecuta el siguiente comando:
+
+```bash
 sudo microk8s add-node
-
+```
 En cada worker, ejecutar el siguiente comando para unirlo al clúster:
-
+```
 microk8s join 192.168.1.230:25000/92b2db237428470dc4fcfc4ebbd9dc81/2c0cb3284b05 --worker
-
-Manifiestos
+```
+### 3.4 Manifiestos
 NFS PersistentVolume (nfs-pv.yaml)
-
+```
 apiVersion: v1
 kind: PersistentVolume
 metadata:
@@ -92,9 +96,9 @@ spec:
   nfs:
     path: /mnt/nfs/shared
     server: 172.31.28.61
-
+```
 NFS PersistentVolumeClaim (nfs-pvc.yaml)
-
+```
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
@@ -105,9 +109,9 @@ spec:
   resources:
     requests:
       storage: 5Gi
-
+```
 MySQL Deployment (mysql-deployment.yaml)
-
+```
 apiVersion: v1
 kind: Service
 metadata:
@@ -154,9 +158,9 @@ spec:
       - name: mysql-persistent-storage
         persistentVolumeClaim:
           claimName: mysql-pv-claim
-
+```
 WordPress Deployment (wordpress-deployment.yaml)
-
+```
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -192,9 +196,9 @@ spec:
       - name: wordpress-storage
         persistentVolumeClaim:
           claimName: nfs-pvc
-
+```
 Ingress Config (ingress-config.yaml)
-
+```
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
@@ -213,16 +217,18 @@ spec:
                 name: wordpress-service
                 port:
                   number: 80
-
+```
 Aplicar los manifiestos
-
+```
 microk8s kubectl apply -f mysql-deployment.yaml
 microk8s kubectl apply -f wordpress-deployment.yaml
 microk8s kubectl apply -f ingress-config.yaml
-
-Descripción del ambiente de ejecución
+```
+### 4.Descripción del ambiente de ejecución
 
 La aplicación se puede acceder a través de la siguiente URL: http://52.204.20.172.nip.io/
-Comando para visualizar la configuración del clúster
 
+Comando para visualizar la configuración del clúster
+```
 microk8s kubectl get all -o wide
+```
