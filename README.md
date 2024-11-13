@@ -303,3 +303,6 @@ microk8s kubectl get all -o wide
 ## Resultado
 ![imagen](https://github.com/user-attachments/assets/244b89a2-d436-4ba1-9340-26f1eafd788a)
 
+## Video de sustentación
+
+
