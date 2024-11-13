@@ -41,13 +41,14 @@ La arquitectura del sistema incluye un clúster de Kubernetes con MicroK8s, conf
 El clúster se creó en la nube AWS utilizando instancias EC2, configuradas con MicroK8s. A continuación se detallan los pasos de configuración y comandos utilizados.
 
 ### 3.1 EC2 en AWS
-- ** Instancias :**
+- Instancias :
 ![imagen](https://github.com/user-attachments/assets/4167a90e-909d-4203-8f87-dbfc765a2b0a)
 
-- **Tipo de instancia y llave de ingreso:** 
+- Tipo de instancia y llave de ingreso:
 ![imagen](https://github.com/user-attachments/assets/4c1cb3b3-0a07-4992-a81b-80fb0f540b63)
 
-- **Grupo de seguridad:** 
+- Grupo de seguridad:
+
 ![imagen](https://github.com/user-attachments/assets/0273706a-cf95-46dc-8808-52d2de3a1d44)
 
 ### Configuración de las instancias
@@ -55,7 +56,7 @@ El clúster se creó en la nube AWS utilizando instancias EC2, configuradas con 
 Historial de todas las configuraciones realizadas en las instancias EC2.
 
 ### Instalación de MicroK8s
-```bash
+
 sudo apt update
 sudo snap install microk8s --classic
 sudo microk8s status --wait-ready
@@ -67,4 +68,161 @@ sudo microk8s enable community
 sudo microk8s start
 sudo microk8s kubectl get all --all-namespaces
 
+Creación del clúster
 
+sudo microk8s add-node
+
+En cada worker, ejecutar el siguiente comando para unirlo al clúster:
+
+microk8s join 192.168.1.230:25000/92b2db237428470dc4fcfc4ebbd9dc81/2c0cb3284b05 --worker
+
+Manifiestos
+NFS PersistentVolume (nfs-pv.yaml)
+
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: nfs-pv
+spec:
+  capacity:
+    storage: 5Gi
+  accessModes:
+    - ReadWriteMany
+  persistentVolumeReclaimPolicy: Retain
+  nfs:
+    path: /mnt/nfs/shared
+    server: 172.31.28.61
+
+NFS PersistentVolumeClaim (nfs-pvc.yaml)
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: nfs-pvc
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 5Gi
+
+MySQL Deployment (mysql-deployment.yaml)
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: wordpress-mysql
+spec:
+  ports:
+  - port: 3306
+  selector:
+    app: mysql
+  type: NodePort
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql
+spec:
+  selector:
+    matchLabels:
+      app: mysql
+  template:
+    metadata:
+      labels:
+        app: mysql
+    spec:
+      containers:
+      - image: mysql:5.6
+        name: mysql
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: password
+        - name: MYSQL_PASSWORD
+          value: password
+        - name: MYSQL_DATABASE
+          value: wordpress
+        - name: MYSQL_USER
+          value: wordpress
+        ports:
+        - containerPort: 3306
+          name: mysql
+        volumeMounts:
+        - name: mysql-persistent-storage
+          mountPath: /var/lib/mysql
+      volumes:
+      - name: mysql-persistent-storage
+        persistentVolumeClaim:
+          claimName: mysql-pv-claim
+
+WordPress Deployment (wordpress-deployment.yaml)
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wordpress
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: wordpress
+  template:
+    metadata:
+      labels:
+        app: wordpress
+    spec:
+      containers:
+      - name: wordpress
+        image: wordpress:php7.4-apache
+        env:
+        - name: WORDPRESS_DB_HOST
+          value: wordpress-mysql
+        - name: WORDPRESS_DB_USER
+          value: wordpress
+        - name: WORDPRESS_DB_PASSWORD
+          value: password
+        - name: WORDPRESS_DB_NAME
+          value: wordpress
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - mountPath: /var/www/html
+          name: wordpress-storage
+      volumes:
+      - name: wordpress-storage
+        persistentVolumeClaim:
+          claimName: nfs-pvc
+
+Ingress Config (ingress-config.yaml)
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: wordpress-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+    - host: 52.204.20.172.nip.io
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: wordpress-service
+                port:
+                  number: 80
+
+Aplicar los manifiestos
+
+microk8s kubectl apply -f mysql-deployment.yaml
+microk8s kubectl apply -f wordpress-deployment.yaml
+microk8s kubectl apply -f ingress-config.yaml
+
+Descripción del ambiente de ejecución
+
+La aplicación se puede acceder a través de la siguiente URL: http://52.204.20.172.nip.io/
+Comando para visualizar la configuración del clúster
+
+microk8s kubectl get all -o wide
