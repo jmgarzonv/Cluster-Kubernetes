@@ -62,7 +62,7 @@ El clúster se creó en la nube AWS utilizando instancias EC2, configuradas con 
 Historial de todas las configuraciones realizadas en las instancias EC2.
 
 ### Instalación de MicroK8s
-
+```
 sudo apt update
 sudo snap install microk8s --classic
 sudo microk8s status --wait-ready
@@ -73,6 +73,7 @@ sudo microk8s enable istio
 sudo microk8s enable community
 sudo microk8s start
 sudo microk8s kubectl get all --all-namespaces
+```
 ## Creación del clúster
 
 Para crear un clúster de MicroK8s y unir los nodos worker, sigue los pasos a continuación.
