@@ -59,7 +59,10 @@ El clúster se creó en la nube AWS utilizando instancias EC2, configuradas con 
 
 ### Configuración de las instancias
 
-Historial de todas las configuraciones realizadas en las instancias EC2.
+[P2MAIN](Comandos/P2MAIN.txt)
+[P2WORKER](Comandos/P2WORKER.txt)
+[P2WORKER2](Comandos/P2WORKER2.txt)
+[NFSP2](Comandos/NSFP2.txt)
 
 ### Instalación de MicroK8s
 ```
